@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import index from "./../pages/index";
 import login from "./../pages/login";
+import register from "./../pages/register";
 import edit from "./../pages/edit";
 import add from "./../pages/add";
 import admin from "./../pages/admin";
@@ -27,6 +28,13 @@ const routes = [
     meta: { title: "登录" }
   },
   {
+    path: "/register",
+    name: "register",
+    component: register,
+    meta: { title: "注册" }
+  },
+
+  {
     path: "/add",
     name: "add",
     component: add,
@@ -49,7 +57,7 @@ const routes = [
     name: "detail",
     component: detail,
     meta: { title: "详情" }
-  },
+  }
 ];
 
 const router = new Router({

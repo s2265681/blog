@@ -13,11 +13,13 @@ let imgBaseUrl = '';
 
 
 if (process.env.NODE_ENV == 'development') {
-    imgBaseUrl = '/img/';
+	imgBaseUrl = '/img/';
+		// baseUrl = 'http://127.0.0.1:2918';
+
 
 }else if(process.env.NODE_ENV == 'production'){
-	baseUrl = 'http://127.0.0.1:7963';
-    imgBaseUrl = '//elm.cangdu.org/img/';
+	// baseUrl = 'http://127.0.0.1:2918';
+    // imgBaseUrl = '//elm.cangdu.org/img/';
 }
 
 export {
