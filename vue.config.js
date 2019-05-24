@@ -1,5 +1,5 @@
 // var env = require('./../env/index')
-console.log(process.env.NODE_ENV,'process.env.NODE_ENV')
+console.log(process,'process.env.NODE_ENV')
 if (process.env.NODE_ENV == 'development') {
  // imgBaseUrl = '/img/';
     // baseUrl = 'http://127.0.0.1:2918';

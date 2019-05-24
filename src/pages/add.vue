@@ -22,10 +22,11 @@
 
 <script>
 
-import {  addBlogList  } from './../service/getData'
+import {  addBlogList,getBlogList  } from './../service/getData'
 
 export default {
   name: 'credit',
+  inject: ['reload'],  // 注入reload依赖
   data(){
     return{
       content:'',
@@ -40,7 +41,13 @@ export default {
               type:'success',
               message:'新增成功'
             })
-            this.$router.push('/admin')
+            this.reload()   // 直接调用
+            this.$router.go(-1)
+            // window.location.reload()
+                // getBlogList()
+            // this.$router.push('/admin')
+            // location.go(-1)
+        
         }else{
           this.$message({
               type:'error',
