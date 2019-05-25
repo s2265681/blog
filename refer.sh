@@ -4,13 +4,15 @@ cnpm run build
 git add .
 git commit -m $1
 git push 
+
+
 #origin development
 # cd ~/desktop
 # mkdir development
 # cd development
 # git clone -b development https://e.coding.net/casewhen/flamingo-web.git
-# cd ~/.ssh
-# ssh root@39.96.71.193
+cd ~/.ssh
+ssh root@39.96.71.193
 # s2265681@163.com
 # "cd /home/rock/www/website/blog;sudo git pull"
 
