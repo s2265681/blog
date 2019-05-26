@@ -3,7 +3,7 @@
   <div class="login">
     <img src="./../assets/img/sea.jpg" class="header" alt>
     <span class="logintxt">
-      <span @click="toRegiter">注册1</span>
+      <span @click="toRegiter">注册</span>
     </span>
     <div class="title">登录</div>
     <div class="loginForm">
