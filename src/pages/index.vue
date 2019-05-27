@@ -72,7 +72,7 @@ export default {
 };
 </script>
 <style >
-.title1 {
+.title {
   font-size: 0.6rem;
   height: 1.8rem;
   display: flex;
