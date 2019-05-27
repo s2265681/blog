@@ -5,7 +5,7 @@
     <span class="logintxt">
       <span @click="toRegiter">注册</span>
     </span>
-    <div class="title">登录1</div>
+    <div class="title">登录</div>
     <div class="loginForm">
       <el-form :model="loginForm" ref="loginForm" label-width="100px">
         <el-form-item
@@ -97,13 +97,13 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .title {
   position: fixed;
   width: 100%;
   text-align: center;
-  font-size: 0.5rem;
-  color: #02141d;
+  font-size: 0.45rem;
+  color: #352829;
   top: 0.25rem;
 }
 
@@ -122,7 +122,7 @@ export default {
 .logintxt {
   position: fixed;
   right: 0.3rem;
-  font-size: 0.35rem;
+  font-size: 0.32rem;
   color: #9e3519;
   top: 0.1rem;
   z-index: 1;

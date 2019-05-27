@@ -107,13 +107,13 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .title {
   position: fixed;
   width: 100%;
   text-align: center;
-  font-size: 0.6rem;
-  color: #5d2f2f;
+  font-size: 0.45rem;
+  color: #352829;
   top: 0.25rem;
 }
 

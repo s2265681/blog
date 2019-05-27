@@ -71,7 +71,7 @@ export default {
   }
 };
 </script>
-<style>
+<style >
 .title1 {
   font-size: 0.6rem;
   height: 1.8rem;
