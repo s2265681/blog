@@ -5,7 +5,7 @@
     <span class="logintxt">
       <span @click="toRegiter">注册</span>
     </span>
-    <div class="title">登录</div>
+    <div class="title">登录1</div>
     <div class="loginForm">
       <el-form :model="loginForm" ref="loginForm" label-width="100px">
         <el-form-item
