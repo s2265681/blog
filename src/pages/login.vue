@@ -99,11 +99,11 @@ export default {
 </script>
 <style scoped>
 .title {
-  position: fixed;
+   position: fixed;
   width: 100%;
   text-align: center;
-  font-size: 0.45rem;
-  color: #352829;
+  font-size: 0.6rem;
+  color: #5d2f2f;
   top: 0.25rem;
 }
 
@@ -122,7 +122,7 @@ export default {
 .logintxt {
   position: fixed;
   right: 0.3rem;
-  font-size: 0.32rem;
+  font-size: 0.35rem;
   color: #9e3519;
   top: 0.1rem;
   z-index: 1;
