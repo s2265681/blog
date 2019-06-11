@@ -1,6 +1,6 @@
 # 执行脚本 sh refer.sh +提交修改的参数
 cd /Users/shangjiawei/Desktop/my\ all/node/blog_h5
-cnpm run build
+npm run build
 git add .
 git commit -m $1
 git push

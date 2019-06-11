@@ -22,8 +22,8 @@
               v-model="image">
           </el-input>
           </div> -->
-        <el-form >
-            <el-form-item label="纸质合同上传" class="upload">
+        <el-form  class="img">
+            <el-form-item label="封面图片" class="upload">
                 <el-upload action="http://ec2-52-82-39-98.cn-northwest-1.compute.amazonaws.com.cn:10001/api/withdrawals/contracts/upload" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :on-success="handleAvatarSuccess"
                     :on-exceed="handleExceed" :on-error="imgUploadError" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>
@@ -188,10 +188,8 @@ export default {
     display: block;
 }
 
-.el-form-item__content {
-    line-height: 40px;
+.img {
     position: relative;
-    font-size: 14px;
-    top: 2rem;
+    top: 1.6rem;
 }
 </style>
