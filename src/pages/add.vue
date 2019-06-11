@@ -1,65 +1,112 @@
 <template>
-   <div class="addblog">
-      <div class="title" style="font-size: .5rem ; " >新增博客</div>
-    <div class="content-input">
-          <span class="t_lab">标题:</span>
-          <el-input style="width:5.5rem;" v-model="title" placeholder="输入标题" prefix-icon="search" ></el-input>
+    <div class="addblog">
+        <div class="title" style="font-size: .5rem ; ">新增博客</div>
+        <div class="content-input">
+            <span class="t_lab">标题:</span>
+            <el-input style="width:5.5rem;" v-model="title" placeholder="输入标题" prefix-icon="search"></el-input>
+        </div>
+        <div class="content-input">
+            <span class="t_lab">内容:</span>
+            <el-input type="textarea" :autosize="{ minRows: 6, maxRows: 10}" placeholder="请输入内容" style="width:5.5rem;" v-model="content">
+    
+            </el-input>
+        </div>
+    
+        <!-- <div class="content-input">
+           <span  class="t_lab">图片:</span>
+            <el-input
+              type="textarea"
+              :autosize="{ minRows: 6, maxRows: 10}"
+              placeholder="请输入图片地址"
+               style="width:5.5rem;"
+              v-model="image">
+          </el-input>
+          </div> -->
+        <el-form >
+            <el-form-item label="纸质合同上传" class="upload">
+                <el-upload action="http://ec2-52-82-39-98.cn-northwest-1.compute.amazonaws.com.cn:10001/api/withdrawals/contracts/upload" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :on-success="handleAvatarSuccess"
+                    :on-exceed="handleExceed" :on-error="imgUploadError" :on-remove="handleRemove">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible">
+                    <img width="100%" :src="dialogImageUrl" alt>
+                </el-dialog>
+            </el-form-item>
+    
+        </el-form>
+    
+        <el-button @click="addBlog" class="button_sub">新增</el-button>
     </div>
-  <div class="content-input">
-       <span  class="t_lab">内容:</span>
-        <el-input
-          type="textarea"
-          :autosize="{ minRows: 6, maxRows: 10}"
-          placeholder="请输入内容"
-           style="width:5.5rem;"
-          v-model="content">
-
-      </el-input>
-      </div>
-      <el-button @click="addBlog" class="button_sub">新增</el-button>
-  </div>
 </template>
 
 <script>
-
-import {  addBlogList,getBlogList  } from './../service/getData'
+import { addBlogList, getBlogList } from './../service/getData'
 
 export default {
-  name: 'credit',
-  inject: ['reload'],  // 注入reload依赖
-  data(){
-    return{
-      content:'',
-      title:''
-    }
-  },
-  methods:{
-   async addBlog(){
-        const result = await  addBlogList(this.title,this.content)
-        if(result.code===200){
-            this.$message({
-              type:'success',
-              message:'新增成功'
-            })
-            this.reload()   // 直接调用
-            this.$router.go(-1)
-            // window.location.reload()
-                // getBlogList()
-            // this.$router.push('/admin')
-            // location.go(-1)
-        
-        }else{
-          this.$message({
-              type:'error',
-              message:'新增失败'
-            })
+    name: 'credit',
+    inject: ['reload'], // 注入reload依赖
+    data() {
+        return {
+            content: '',
+            title: '',
+            // image:'',
+            dialogImageUrl: '',
+            dialogVisible: false,
+            contractOss:[]
         }
-     }
-  }
+    },
+    methods: {
+        async addBlog() {
+            const result = await addBlogList(this.title, this.content, this.contractOss)
+            if (result.code === 200) {
+                this.$message({
+                    type: 'success',
+                    message: '新增成功'
+                })
+                this.reload() // 直接调用
+                this.$router.go(-1)
+
+            } else {
+                this.$message({
+                    type: 'error',
+                    message: '新增失败'
+                })
+            }
+        },
+        handleRemove(file, fileList) {
+            //移除图片
+            console.log(file, fileList);
+        },
+        handlePictureCardPreview(file) {
+            //预览图片时调用
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
+        },
+        handleAvatarSuccess(res, file, fileList) {
+            //图片上传成功
+            // this.imageUrl = URL.createObjectURL(file.raw);
+            this.imageUrl = file.response.data.url;
+            this.fileName = file.response.data.fileName;
+            console.log(this.imageUrl, "this.imageUrl");
+            this.contractOss.push(this.imageUrl);
+            this.$message.success("图片上传成功");
+        },
+        handleExceed(files, fileList) {
+            //图片上传超过数量限制
+            this.$message.error("上传图片不能超过45张!");
+            console.log(file, fileList);
+        },
+        imgUploadError(err, file, fileList) {
+            //图片上传失败调用
+            console.log(err);
+            this.$message.error("上传图片失败!");
+        },
+    }
 }
 </script>
+
 <style scoped>
-.content-input{
+.content-input {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -70,16 +117,81 @@ export default {
     position: relative;
     top: 1.5rem;
 }
-.t_lab{
-      margin-right: .2rem;
+
+.t_lab {
+    margin-right: .2rem;
     font-size: 0.24rem;
 }
-.button_sub{
-  position: relative;
+
+.button_sub {
+    position: relative;
     top: 1.2rem;
     text-align: center;
     left: 50%;
     margin-left: -.7rem;
     width: 1.4rem;
+}
+
+
+
+.avatar-uploader .el-upload {
+    border: 0.02rem dashed #d9d9d9;
+    border-radius: 0.06rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #409eff;
+}
+
+.el-upload-list__item {
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 8px 8px 0;
+    display: inline-block;
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+}
+
+.el-upload__input {
+    display: none !important;
+}
+
+.el-upload-list__item-delete {
+    position: static;
+    /* font-size: inherit; */
+    color: inherit;
+    font-size: 0.25rem !important;
+}
+
+.el-upload--text {
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1.7rem;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}
+
+.avatar {
+    width: 0.17rem;
+    height: 0.17rem;
+    display: block;
+}
+
+.el-form-item__content {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    top: 2rem;
 }
 </style>

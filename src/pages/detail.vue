@@ -3,7 +3,7 @@
       <!-- <div class="title1" style="font-size: .5rem ; " >博客详情</div> -->
    
 <el-card class="box-card">
-   <img src="https://element.eleme.cn/2.0/static/hamburger.50e4091.png" class="image">
+   <img :src="image" class="image">
   <div slot="header" class="clearfix">
     <span class="cardName"> {{title}}</span>
      <div class="snamllName"><span style="margin-right:.3rem">作者:{{author}}</span><span>  创建时间:{{$moment(time).format('YYYY-MM-DD')}}</span></div>
@@ -28,7 +28,8 @@ export default {
       title:'',
       id:'',
       author:'',
-      time:''
+      time:'',
+      image:''
     }
   },
  async mounted(){
@@ -39,6 +40,7 @@ export default {
           this.id= id
           this.author = data.data.author
           this.time = data.data.createtime
+          this.image = data.data.image||'https://element.eleme.cn/2.0/static/hamburger.50e4091.png'
           
   },
   methods:{

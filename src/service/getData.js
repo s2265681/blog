@@ -19,8 +19,8 @@ export const searchBlogList = keyword =>
   fetch("/api/blog/list", { keyword }, "GET");
 
 // 新增
-export const addBlogList = (title, content) =>
-  fetch("/api/blog/new", { title, content }, "POST");
+export const addBlogList = (title, content,image) =>
+  fetch("/api/blog/new", { title, content ,image}, "POST");
 
 // 详情  // '/api/blog/detail?id=' + urlParams.id
 export const detailBlogList = id => fetch("/api/blog/detail", { id });
