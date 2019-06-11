@@ -1,6 +1,6 @@
 # 执行脚本 sh refer.sh +提交修改的参数
 cd /Users/shangjiawei/Desktop/my\ all/node/blog_h5
-# cnpm run build
+cnpm run build
 git add .
 git commit -m $1
 git push
@@ -10,7 +10,7 @@ git push
 # cd development
 # git clone -b development https://e.coding.net/casewhen/flamingo-web.git
 cd ~/.ssh
-ssh -i id_myserver-rsa.pem root@39.96.71.193 "cd /home/rock/www/website/blog;sudo git pull"
+ssh root@39.96.71.193 "cd /home/rock/www/website/blog;sudo git pull"
 # ssh root@39.96.71.193
 # s2265681@163.com
 # "cd /home/rock/www/website/blog;sudo git pull"
