@@ -24,7 +24,8 @@ export default async (url = "", data = {}, type = "GET", method = "fetch") => {
         Accept: "application/json",
         "Content-Type": "application/json",
         "Cache-Control":"no-cache",
-        "If-Modified-Since":"0"
+        "If-Modified-Since":"0",
+        "Content-Security-Policy": "upgrade-insecure-requests"
       },
       mode: "cors",
       cache: "force-cache"
