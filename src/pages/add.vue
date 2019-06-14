@@ -14,7 +14,7 @@
         <el-form  class="img">
             <el-form-item label="封面图片" class="upload">
 
-              <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :show-file-list="false" :on-success="handleAvatarSuccess"
+              <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45"  :multiple="true" :on-preview="handlePictureCardPreview"  :on-success="handleAvatarSuccess"
                     :on-exceed="handleExceed" :on-error="imgUploadError" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>
               </el-upload>
