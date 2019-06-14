@@ -6,7 +6,7 @@
       <span @click="toRegiter">注册</span>|-->
       <span @click="toAdmin">管理</span>
     </span>
-    <img src="./../assets/img/sea.jpg" class="header" alt>
+    <img src="https://www.rockshang.cn/sea.jpg" class="header" alt>
     <el-table
       stripe="true"
       highlight-current-row="true"
