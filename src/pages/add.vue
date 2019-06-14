@@ -11,24 +11,14 @@
     
             </el-input>
         </div>
-    
-        <!-- <div class="content-input">
-           <span  class="t_lab">图片:</span>
-            <el-input
-              type="textarea"
-              :autosize="{ minRows: 6, maxRows: 10}"
-              placeholder="请输入图片地址"
-               style="width:5.5rem;"
-              v-model="image">
-          </el-input>
-          </div> -->
         <el-form  class="img">
             <el-form-item label="封面图片" class="upload">
-                <!-- <el-upload action="http://ec2-52-82-39-98.cn-northwest-1.compute.amazonaws.com.cn:10001/api/withdrawals/contracts/upload" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :on-success="handleAvatarSuccess" -->
-             <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :on-success="handleAvatarSuccess"
+
+              <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45" :multiple="true" :on-preview="handlePictureCardPreview" :show-file-list="false" :on-success="handleAvatarSuccess"
                     :on-exceed="handleExceed" :on-error="imgUploadError" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>
-                </el-upload>
+              </el-upload>
+
                 <el-dialog :visible.sync="dialogVisible">
                     <img width="100%" :src="dialogImageUrl" alt>
                 </el-dialog>
