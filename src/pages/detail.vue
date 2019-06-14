@@ -40,7 +40,7 @@ export default {
           this.id= id
           this.author = data.data.author
           this.time = data.data.createtime
-          this.image = data.data.image||'https://element.eleme.cn/2.0/static/hamburger.50e4091.png'
+          this.image = data.data.image ||'https://element.eleme.cn/2.0/static/hamburger.50e4091.png'
           
   },
   methods:{

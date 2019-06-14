@@ -53,12 +53,13 @@ export default {
             // image:'',
             dialogImageUrl: '',
             dialogVisible: false,
-            contractOss:[]
+            contractOss:[],
+            imageUrl:''
         }
     },
     methods: {
         async addBlog() {
-            const result = await addBlogList(this.title, this.content, this.contractOss)
+            const result = await addBlogList(this.title, this.content, this.imageUrl)
             if (result.code === 200) {
                 this.$message({
                     type: 'success',
@@ -86,10 +87,11 @@ export default {
         handleAvatarSuccess(res, file, fileList) {
             //图片上传成功
             // this.imageUrl = URL.createObjectURL(file.raw);
-            this.imageUrl = file.response.data.url;
-            this.fileName = file.response.data.fileName;
-            console.log(this.imageUrl, "this.imageUrl");
-            this.contractOss.push(this.imageUrl);
+            console.log(file,'file++++')
+            this.imageUrl = file.response.filename;
+            // this.fileName = file.response.data.fileName;
+            // console.log(this.imageUrl, "this.imageUrl");
+            // this.contractOss.push(this.imageUrl);
             this.$message.success("图片上传成功");
         },
         handleExceed(files, fileList) {
