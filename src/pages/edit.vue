@@ -30,7 +30,7 @@
           :before-upload="beforeAvatarUpload"
           :on-error="imgUploadError"
           :on-remove="handleRemove"
-          :show-file-list="true"
+          :show-file-list="false"
         >
           <img v-if="imageUrl" :src="imageUrl" class="avatar" style="width:100%;height:100%">
           <i  v-else class="el-icon-plus"></i>
