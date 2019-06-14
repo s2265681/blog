@@ -26,8 +26,8 @@ export const addBlogList = (title, content,image) =>
 export const detailBlogList = id => fetch("/api/blog/detail", { id });
 
 // 编辑
-export const updateBlogList = (id, title, content, author) =>
-  fetch(`/api/blog/update?id=${id}`, { title, content, author }, "POST");
+export const updateBlogList = (id, title, content, author,image) =>
+  fetch(`/api/blog/update?id=${id}`, { title, content, author,image }, "POST");
 
 // 删除
 export const delBlogList = id => fetch("/api/blog/del", { id }, "POST");
