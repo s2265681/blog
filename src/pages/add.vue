@@ -15,7 +15,7 @@
             <el-form-item label="封面图片" class="upload">
 
               <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45"  :multiple="true" :on-preview="handlePictureCardPreview"  :on-success="handleAvatarSuccess"
-                    :on-exceed="handleExceed" :on-error="imgUploadError" :on-remove="handleRemove">
+                    :on-exceed="handleExceed" :before-upload="beforeAvatarUpload"  :on-error="imgUploadError" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>
               </el-upload>
 
@@ -93,6 +93,28 @@ export default {
             //图片上传失败调用
             console.log(err);
             this.$message.error("上传图片失败!");
+        },
+         //      上传照片前的校验
+        beforeAvatarUpload(file) {
+            var testmsg = /^image\/(jpeg|png|jpg)$/.test(file.type)
+            const isLt4M = file.size / 1024 / 1024 <= 4 //图片大小不超过2MB
+            if (!testmsg) {
+                this.$message({
+                    message: "上传图片格式不对!",
+                    type: 'error',
+                    center: true
+                });
+                return
+            }
+            if (!isLt4M) {
+                this.$message({
+                    message: "上传图片大小不能超过 4M!",
+                    type: 'error',
+                    center: true
+                });
+                return
+            }
+            return testmsg && isLt4M
         },
     }
 }
