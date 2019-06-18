@@ -58,6 +58,12 @@ export default {
       userInfo: ""
     };
   },
+    mounted(){
+    // https%3A%2F%2Fwww.rockshang.cn%2F%23%2Flogin
+    window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbe670ef0710c928a&redirect_uri=https%3A%2F%2Fwww.rockshang.cn%2F%23%2Flogin&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+    // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbe670ef0710c928a&redirect_uri=https%3A%2F%2Fwww.rockshang.cn%2F%23%2Flogin&response_type=code&scope=snsapi_base#wechat_redirect
+     
+  },
   methods: {
     //发送登录信息
     async submitForm() {
