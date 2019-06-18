@@ -13,19 +13,15 @@
         </div>
         <el-form  class="img">
             <el-form-item label="封面图片" class="upload">
-
               <el-upload action="/api/blog/uploadfile" list-type="picture-card" accept="image/*" :limit="45"  :multiple="true" :on-preview="handlePictureCardPreview"  :on-success="handleAvatarSuccess"
                     :on-exceed="handleExceed" :before-upload="beforeAvatarUpload"  :on-error="imgUploadError" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>
               </el-upload>
-
                 <el-dialog :visible.sync="dialogVisible">
                     <img width="100%" :src="dialogImageUrl" alt>
                 </el-dialog>
             </el-form-item>
-    
         </el-form>
-    
         <el-button @click="addBlog" class="button_sub">新增</el-button>
     </div>
 </template>
@@ -43,7 +39,7 @@ export default {
             // image:'',
             dialogImageUrl: '',
             dialogVisible: false,
-            contractOss:[],
+            // contractOss:[],
             imageUrl:''
         }
     },
