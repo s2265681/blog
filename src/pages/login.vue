@@ -1,7 +1,7 @@
 
 <template>
   <div class="login">
-    <img src="https://www.rockshang.cn/sea.jpg" class="header" alt>
+    <img src="https://blog.rockshang.cn/sea.jpg" class="header" alt>
     <span class="logintxt">
       <span @click="toRegiter">注册</span>|
       <span @click="wxLogin">微信登录</span>
