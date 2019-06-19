@@ -3,9 +3,11 @@
   <div class="login">
     <img src="https://www.rockshang.cn/sea.jpg" class="header" alt>
     <span class="logintxt">
-      <span @click="toRegiter">注册</span>
+      <span @click="toRegiter">注册</span>|
+      <span @click="wxLogin">微信登录</span>
     </span>
     <div class="title">登录</div>
+    
     <div class="loginForm">
       <el-form :model="loginForm" ref="loginForm" label-width="100px">
         <el-form-item
@@ -60,7 +62,6 @@ export default {
   },
     mounted(){
     // https%3A%2F%2Fwww.rockshang.cn%2F%23%2Flogin
-    window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbe670ef0710c928a&redirect_uri=https%3A%2F%2Fwww.rockshang.cn%2F%23%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
     // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbe670ef0710c928a&redirect_uri=https%3A%2F%2Fwww.rockshang.cn%2F%23%2Flogin&response_type=code&scope=snsapi_base#wechat_redirect
      
   },
@@ -99,6 +100,10 @@ export default {
     toRegiter() {
       console.log("33");
       this.$router.push("./register");
+    },
+    wxLogin(){
+    window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbe670ef0710c928a&redirect_uri=https%3A%2F%2Fwww.rockshang.cn%2F%23%2Findex&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+
     }
   }
 };
