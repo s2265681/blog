@@ -1,7 +1,7 @@
 
 <template>
   <div class="login">
-    <img src="./../assets/img/sea.jpg" class="header" alt>
+    <img src="https://blog.rockshang.cn/sea.jpg" class="header" alt>
     <div class="title">注册</div>
     <div class="loginForm">
       <el-form :model="loginForm" ref="loginForm" label-width="100px">
