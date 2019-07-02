@@ -1,7 +1,7 @@
 # casewhen_h5
 # 说明：博客项目 h5 页面 ， 使用 vue 框架 ， 
 # 后端是node，采用的koa2 框架   项目名： blog_server 
-## Project setup
+## Project setup 
 ```
 npm install
 ```
