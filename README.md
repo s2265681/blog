@@ -3,8 +3,8 @@
 # 后端是node，采用的koa2 框架   项目名： blog_server 
 ## Project setup 
 ``` 
-npm install
-```
+npm install  
+``
 
 ### Compiles and hot-reloads for development
 ```
