@@ -29,5 +29,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### 测试jenkions
-   
+### 测试jenkions build
